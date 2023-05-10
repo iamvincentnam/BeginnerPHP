@@ -1,6 +1,6 @@
-<?php echo "<br>" ;
+<?php 
+echo "<br>" ;
 
-include_once('dbase.php');
 ?>
 
  <!DOCTYPE html>
@@ -60,6 +60,15 @@ width: 70%;}
 margin: 0 auto;
 padding: 5px 20px;}
 #submit:active{background-color: #4f68af;}
+.form-flex{display: flex;
+justify-content: space-evenly;
+align-items: center;}
+.form-flex table{
+    border: 1px solid black !important;
+border-collapse: collapse !important; max-width: 400px;}
+.form-flex tr{
+    border: 1px solid orange;
+}
 </style>
     <title>Homepage</title>
    
@@ -69,77 +78,52 @@ padding: 5px 20px;}
 
 include  ('./nav_folder/navFile.php');
 
-?>
+ ?>
 <body>
     <div class="navigation">
        
         <h1>Home</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ullam quo iure earum nostrum blanditiis, eveniet inventore! Nihil fugiat accusantium vitae voluptatum veniam voluptate eos veritatis, praesentium error modi quae assumenda nesciunt quis eius unde commodi rerum pariatur doloremque delectus hic earum! Tenetur architecto soluta magnam praesentium, repudiandae culpa natus.</p>
-
-<?php
-class user{
-public $name ;
-public $email;
-public $password;
-}
-$user1 = new user();
-$user1->name ='Vincent Nam';
-function __construct(){
-echo 'constructor ran';
-};
-
-echo "<pre>";
-print_r($user1);
-echo "</pre>";
 
 
-?>
+<p>
+This code defines a function called "mycalc" that takes three arguments: $num1 (first number), $opera (operation type), and $num2 (second number). The function performs a mathematical operation on the two numbers based on the operation type specified in the second argument. It then returns the result of the calculation.
+<br>
+The code also checks if the 'submit' button has been pressed in a form. If it has, it retrieves the values for $operational, $number1, and $number2 from the form input and calls the "mycalc" function with those values as arguments. The resulting calculation is stored in the variable $result_func.
+<br>
+Finally, the code displays the result of the calculation in an HTML heading tag.
+</p>
+
+       
+<hr>
+
     </div>
 <br>
 <br>
 
-    <form action="arithmetic.php" method="POST">
-    <strong style="color:
-    silver; text-decoration:underline;"> My Menu App</strong>
+  
+<hr>
+<hr>
 
-<div class="formdiv">
-    <label for="num1">Number 1</label>
-    <input type="text" name="num1" placeholder="Num 1">
-</div>
+<h2>User Management system</h2>
+        <p>This code is for a simple user management system. It allows users to submit their first name, last name, and email through a form, which is then inserted into a MySQL database. Additionally, there is functionality to delete a user by their first or last name. The code utilizes the mysqli extension to interact with the database. Upon successful submission or deletion, the user is redirected to the home.php page with a success message in the URL.</p>
+<div class="form-flex">
 
-<div class="formdiv">
-    <select name="opera">
-     <label for=""> Choose Operation</label>
-     <option value="add"> Add</option>  
-     <option value="subtract"> subtract</option>  
-     <option value="multiply"> Multiply</option>  
-    </select>
-</div>
-<div class="formdiv">
-    <label for="num2">Number 2</label>
-    <input type="text" name="num2" placeholder="Num 2">
-</div>
-
-<div class="formdiv">
-    <input type="submit" name="submit" value="Calculate" id="submit">
-</div>
+<form action="arithmetic.php" method="POST"> 
+     <input type="text" name="firstname" placeholder="firstname" required autocomplete="off">
+    <input type="text"  name="lastname" placeholder="lastname" required autocomplete="off">
+    <input type="email" name="email" placeholder="email" autocomplete="off" required>
+    <!-- <input type="text"  name="username" placeholder="username" required autocomplete="off"> -->
+    <input type="submit" value="Go" name="submit">
 </form>
-<hr>
-<hr>
-<!-- <form> 
-     <input type="text" name="firstname" placeholder="firstname" required>
-    <input type="text"  name="lastname" placeholder="lastname" required>
-    <input type="email" name="email" placeholder="email" required>
-    <input type="text"  name="username" placeholder="username" required>
-    <input type="submit" value="Submit" name="submit">
-</form> -->
 
-
+<form action="arithmetic.php" method="POST" style="margin-top: 1rem;"> 
+     <input type="text" name="namedelete" placeholder="Enter Name to be deleted" required autocomplete="off">
+     <input type="submit" value="Delete" name="delete">
+</form>
+</div>
 <?php
-$sql = "select * from users;";
-$result = mysqli_query($connection,$sql);
-$resultCheck = mysqli_num_rows($result);
 
+echo "<br>";
  include ('./nav_folder/footer.php'); 
   ?>
 </body>

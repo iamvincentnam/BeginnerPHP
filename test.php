@@ -52,20 +52,33 @@
 </head>
 <body>
 
-
 <?php 
-?>
+$result ='';
+ function arithmeticFunc($num1, $num2, $opera){
+    switch($opera) {
+    case 'add':
+      $result = $num1 + $num2;
+      break;
+      case 'subtract':
+        $result = $num1 - $num2;
+        break;
+      case 'multiply':
+        $result = $num1 * $num2;
+        break;
+        default:
+        $result= " Operation can not be done!!!";
+    }
+    return $result;
+    }
+    if(isset($_POST["submit"])){
+      $number1 = $_POST["num1"];
+      $number2 = $_POST["num2"];
+      $operation =$_POST["opera"];
+      $message = arithmeticFunc($number1,$number2,$operation);
+    }
 
-<?php 
-
-
- 
-echo "<br>";
-echo "<br>";
-echo "<br>";
-
-
- 
+        echo "<h1>Your answer is: $message</h1>";
+  
 $drinks =[
    'category1' =>[
       'name' =>'Moscow',
@@ -97,7 +110,8 @@ $drinks =[
 
  
 ?> 
-
+<?php  
+    ?>
 
    <?php foreach($drinks as $category ):?>
       

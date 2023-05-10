@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,38 +15,34 @@
 <body>
 <?php 
  include('./nav_folder/navFile.php');
- $result ='';
  
- function mycalc($num1, $opera, $num2){
 
-switch($opera){
-case 'add':
-    $result = $num1 + $num2;
-    break;
-case 'multiply':
- $result = $num1 * $num2;
-        break;
-case 'subtract':
-     $result = $num1 - $num2;
-     break;
-default:
-$result ="Error!!!!!" ;
-}
-return $result;
- }
- if(isset($_POST['submit'])){
-    $operational = $_POST['opera'];
-    $number1 = $_POST['num1'];
-    $number2 = $_POST['num2'];
+//  the code for collecting and saving values from an input into the database goes here.
+   include_once('dbase.php');
 
-$result_func = mycalc($number1, $operational, $number2);
+   if(isset($_POST["submit"])){
+    
+    $firstName =mysqli_real_escape_string($connection,$_POST["firstname"]) ;
+    $lastName =mysqli_real_escape_string($connection, $_POST["lastname"]) ;
+    $email =mysqli_real_escape_string($connection,  $_POST["email"]);
+    // $userName = $_POST["username"];
+    $sql = "INSERT INTO users(user_first,user_last, user_email)values('$firstName','$lastName','$email');";
+    $sqlResult = mysqli_query($connection, $sql);
+
+      header("Location:home.php?signup=success!!");
+ 
   
- }
- 
- echo " <h1> Your answer is
-   $result_func </h1>";
- echo "<br>";
- include('./nav_folder/footer.php');
+   }
+// Here is the code for deleting a row/item in a database after an input value  with corresponding data is entered.
+if(isset($_POST["delete"])){
+  $delete =$_POST["namedelete"];
+  $sql="DELETE From users where user_first = '$delete' OR user_last ='$delete';";
+  mysqli_query($connection,$sql);
+header("Location: home.php?delete=success");
+}
+
+
+
  ?>
 </body>
 

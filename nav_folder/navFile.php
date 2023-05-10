@@ -59,11 +59,11 @@
     
             <h2 id="icon"> Mywebsite</h2>
             <ul>
-                <li><a href="http://localhost:5442/vincent-php/home.php"> Home</a></li>
-                <li><a href="http://localhost:5442/vincent-php/contact.php"> Contact</a></li>
+                <li><a href=http://localhost:5442/vincent-php/vin-repository/home.php"> Home</a></li>
+                <li><a href="http://localhost:5442/vincent-php/vin-repository/contact.php"> Contact</a></li>
                 <li><a href="#"> Gallery</a></li>
                 <li><a href="#">Services</a></li>
-                <li><a href="http://localhost:5442/vincent-php/blog.php">Blog</a></li>
+                <li><a href="http://localhost:5442/vincent-php/vin-repository/test.php">Blog</a></li>
             </ul>
 
 </div>

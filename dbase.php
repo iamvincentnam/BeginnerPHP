@@ -1,10 +1,11 @@
 
 <?php
-$dbserverName = "localhost";
-$dbuserName="root";
-$dbpassWord="";
-$dbName="daniel_krossing";
-$connection =mysqli_connect($dbserverName,$dbuserName,$dbpassWord,$dbName);
-echo 'Hello wolrd wolrd wolrd  wolrd Oh. ' ."<br>";
-echo "FCMB";
+$dbserverName = 'localhost';
+$dbUserName ='root';
+$dbPassWord ='';
+$dbName ='daniel_krossing';
+
+$connection = mysqli_connect($dbserverName,$dbUserName,$dbPassWord, $dbName);
+
+echo 'Vincent Nam Is with Sarima. He turned down a tehcase job offer. ' ."<br>";
 ?>
